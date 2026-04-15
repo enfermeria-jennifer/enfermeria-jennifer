@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jennifer Benalcázar - Enfermería y Docencia</title>
+  <style>
+    :root {
+      --azul: #1e5b8f;
+      --azul-oscuro: #123a5c;
+      --celeste: #eaf6ff;
+      --blanco: #ffffff;
+      --gris: #f4f7fa;
+      --texto: #243746;
+      --acento: #22a6b3;
+      --sombra: 0 10px 30px rgba(0,0,0,0.08);
+      --radio: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: var(--gris);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(18,58,92,0.72), rgba(30,91,143,0.72)),
+                  url('WhatsApp Image 2026-04-14 at 10.46.37 PM.jpeg') center/cover no-repeat;
+      color: white;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero {
+      max-width: 850px;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 40px 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    .botones {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-principal {
+      background: white;
+      color: var(--azul-oscuro);
+    }
+
+    .btn-principal:hover {
+      transform: translateY(-2px);
+      background: #f2f8fd;
+    }
+
+    .btn-secundario {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secundario:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .nav-contenedor {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--azul-oscuro);
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .menu a:hover {
+      color: var(--azul);
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .titulo-seccion {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .titulo-seccion h2 {
+      font-size: 2rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 10px;
+    }
+
+    .titulo-seccion p {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .sobre-mi {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .tarjeta {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      padding: 28px;
+    }
+
+    .sobre-mi img {
+      width: 100%;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      object-fit: cover;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .servicio h3 {
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .beneficio {
+      text-align: center;
+    }
+
+    .beneficio span {
+      display: inline-block;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .contacto {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d7e0e8;
+      border-radius: 12px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--azul);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      background: var(--azul);
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--azul-oscuro);
+    }
+
+    .datos p {
+      margin-bottom: 12px;
+    }
+
+    footer {
+      background: var(--azul-oscuro);
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .sobre-mi,
+      .contacto {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="inicio">
+    <div class="hero">
+      <h1>Jennifer Benalcázar</h1>
+      <p>Enfermería y docencia con vocación de servicio, cuidado humano y enseñanza profesional para la comunidad y futuros profesionales de la salud.</p>
+      <div class="botones">
+        <a href="#contacto" class="btn btn-principal">Solicitar atención</a>
+        <a href="#servicios" class="btn btn-secundario">Ver servicios</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-contenedor">
+      <div class="logo">Jennifer Benalcázar</div>
+      <div class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="sobre-mi">
+    <div class="titulo-seccion">
+      <h2>Sobre mí</h2>
+      <p>Profesional comprometida con el bienestar de las personas, la atención integral y la formación en el área de enfermería.</p>
+    </div>
+
+    <div class="sobre-mi">
+      <img src="WhatsApp Image 2026-04-14 at 10.46.37 PM.jpeg" alt="Jennifer Benalcázar en atención de enfermería" />
+      <div class="tarjeta">
+        <h3 style="color: var(--azul-oscuro); margin-bottom: 14px;">Cuidando y enseñando con calidad humana</h3>
+        <p style="margin-bottom: 14px;">Brindo atención de enfermería con enfoque profesional, responsable y cercano, orientada al cuidado del paciente y al acompañamiento de familias.</p>
+        <p style="margin-bottom: 14px;">También participo en procesos de enseñanza y formación, fortaleciendo conocimientos prácticos y teóricos en el área de salud.</p>
+        <p>Mi propósito es aportar bienestar, confianza y aprendizaje a cada persona que necesita atención o capacitación.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="titulo-seccion">
+      <h2>Servicios</h2>
+      <p>Espacios de cuidado, orientación y formación en enfermería para pacientes, familiares y estudiantes.</p>
+    </div>
+
+    <div class="servicios-grid">
+      <div class="tarjeta servicio">
+        <h3>Atención de enfermería</h3>
+        <p>Control de signos vitales, valoración básica, seguimiento y acompañamiento en cuidados generales.</p>
+      </div>
+      <div class="tarjeta servicio">
+        <h3>Educación para la salud</h3>
+        <p>Charlas, orientación preventiva y acompañamiento educativo para pacientes, familias y comunidades.</p>
+      </div>
+      <div class="tarjeta servicio">
+        <h3>Capacitación académica</h3>
+        <p>Apoyo en formación práctica y teórica para estudiantes o grupos interesados en enfermería y docencia.</p>
+      </div>
+      <div class="tarjeta servicio">
+        <h3>Asesoría personalizada</h3>
+        <p>Orientación individual según necesidades de cuidado, aprendizaje o fortalecimiento de competencias.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios">
+    <div class="titulo-seccion">
+      <h2>¿Por qué elegirme?</h2>
+      <p>Una atención basada en profesionalismo, empatía y compromiso con la salud y la enseñanza.</p>
+    </div>
+
+    <div class="beneficios">
+      <div class="tarjeta beneficio">
+        <span>💙</span>
+        <h3>Trato humano</h3>
+        <p>Atención cercana, amable y respetuosa para cada paciente y familia.</p>
+      </div>
+      <div class="tarjeta beneficio">
+        <span>🩺</span>
+        <h3>Experiencia profesional</h3>
+        <p>Trabajo orientado al cuidado responsable y al seguimiento oportuno.</p>
+      </div>
+      <div class="tarjeta beneficio">
+        <span>📘</span>
+        <h3>Docencia y formación</h3>
+        <p>Apoyo en procesos de enseñanza con enfoque claro y práctico.</p>
+      </div>
+      <div class="tarjeta beneficio">
+        <span>🤝</span>
+        <h3>Confianza</h3>
+        <p>Compromiso con la ética, el servicio y la tranquilidad de quienes reciben atención.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="titulo-seccion">
+      <h2>Contacto</h2>
+      <p>Solicita información o agenda una atención a través del formulario o por contacto directo.</p>
+    </div>
+
+    <div class="contacto">
+      <div class="tarjeta">
+        <form action="mailto:benalcazarjennifer@gmail.com" method="post" enctype="text/plain">
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+          <input type="tel" name="telefono" placeholder="Tu teléfono" required />
+          <input type="email" name="correo" placeholder="Tu correo electrónico" required />
+          <textarea name="mensaje" placeholder="Describe la atención o información que necesitas" required></textarea>
+          <button type="submit">Enviar solicitud</button>
+        </form>
+      </div>
+
+      <div class="tarjeta datos">
+        <h3 style="color: var(--azul-oscuro); margin-bottom: 16px;">Datos de contacto</h3>
+        <p><strong>Nombre:</strong> Jennifer Benalcázar</p>
+        <p><strong>Correo:</strong> benalcazarjennifer@gmail.com</p>
+        <p><strong>Celular:</strong> 0980070759</p>
+        <p><strong>WhatsApp directo:</strong> <a href="https://wa.me/593980070759?text=Hola%20Jennifer%2C%20quisiera%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20enfermer%C3%ADa." target="_blank">Escríbeme por WhatsApp</a></p>
+        <p><strong>Horario referencial:</strong> Lunes a viernes de 08:00 a 18:00</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Jennifer Benalcázar - Enfermería y Docencia. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
